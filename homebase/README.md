@@ -1,0 +1,1 @@
+this is going to be a dirt simple "homebase" for OuterLan users. i'm going to make it with https://rocket.rs/.
