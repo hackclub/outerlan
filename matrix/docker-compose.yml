@@ -16,13 +16,8 @@ services:
             - "8008:8008/tcp"
             - "8448:8448/tcp"
     cinny:
-        image: "outerlan/cinny:latest"
+        image: "outerlan/cinny:latest" # https://github.com/aboutdavid/cinny-outerlan.git
         restart: unless-stopped
-        volumes:
-            - "./cinny_data:/app/tmp"
         container_name: "cinny"
         ports:
             - "8009:80/tcp"
-# docker run -p 8080:80 ajbura/cinny:latest
-# RUN /bin/sh -c rm -rf /usr/share/nginx/html && ln -s /app /usr/share/nginx/html # buildkit
-

@@ -1,0 +1,12 @@
+
+# make sure that line 1 is a new space and is left blank :)
+
+enable_registration: True # enables signups on the matrix server
+enable_registration_without_verification: True # no email verification in the middle of the woods!!
+no_tls: True # not forcing TLS
+auto_join_rooms: # a list of autojoined channels
+  - "#announcements:chat.outernet"
+  - "#lounge:chat.outernet"
+  - "#weather:chat.outernet"
+autocreate_auto_join_rooms_federated: False # just in case.
+admin_contact: 'Contact Reese, David, or Cara. You should not be seeing this.' # instructions in case something *bad* happens
