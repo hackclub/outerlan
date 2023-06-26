@@ -1,0 +1,28 @@
+version: "3.3"
+services:
+    synapse:
+        image: "matrixdotorg/synapse:latest"
+        restart: unless-stopped
+        container_name: "synapse"
+        volumes:
+            - "./data:/data:Z"
+        environment:
+            VIRTUAL_HOST: "chat.outernet"
+            VIRTUAL_PORT: 8008
+            SYNAPSE_SERVER_NAME: "chat.outernet"
+            SYNAPSE_REPORT_STATS: "yes"
+            TZ: "America/New_York" # cabot is EST
+        ports:
+            - "8008:8008/tcp"
+            - "8448:8448/tcp"
+    cinny:
+        image: "outerlan/cinny:latest"
+        restart: unless-stopped
+        volumes:
+            - "./cinny_data:/app/tmp"
+        container_name: "cinny"
+        ports:
+            - "8009:80/tcp"
+# docker run -p 8080:80 ajbura/cinny:latest
+# RUN /bin/sh -c rm -rf /usr/share/nginx/html && ln -s /app /usr/share/nginx/html # buildkit
+
