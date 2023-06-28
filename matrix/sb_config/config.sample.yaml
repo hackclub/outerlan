@@ -1,0 +1,29 @@
+homeserver:
+  server_name: chat.outernet
+  url: http://host.docker.internal:8008
+  appservice_port: 5858
+  appservice_host: 0.0.0.0
+
+username_prefix: "slack_"
+rmau_limit: 100
+
+db:
+  engine: "postgres"
+  connectionString: "postgresql://postgres:postgres@host.docker.internal:5438/sb"
+
+matrix_admin_room: "..."
+
+puppeting:
+  enabled: true
+
+rtm:
+  enable: true
+  log_level: "silent"
+
+oauth2:
+  client_id: "..."
+  client_secret: "..."
+  redirect_prefix: "..."
+
+slack_hook_port: 9898
+enable_metrics: true

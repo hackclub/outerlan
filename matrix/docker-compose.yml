@@ -21,3 +21,40 @@ services:
         container_name: "cinny"
         ports:
             - "8009:80/tcp"
+    slackbridge:
+        image: "matrixdotorg/matrix-appservice-slack:latest"
+        restart: unless-stopped
+        container_name: "slackbridge"
+        volumes:
+            - "./sb_config:/config"
+        ports:
+            - "5858:5858/tcp"
+            - "9898:9898/tcp"
+    sbpostgres:
+        image: sbpostgres:latest
+        restart: unless-stopped
+        container_name: "sbpostgres"
+        environment:
+          - POSTGRES_USER=postgres
+          - POSTGRES_PASSWORD=postgres
+        logging:
+          options:
+            max-size: 10m
+            max-file: "3"
+        ports:
+          - '5438:5432'
+        volumes: 
+          - sbpostgres:/var/lib/postgresql/data
+    synapse-admin:
+        container_name: synapse-admin
+        hostname: synapse-admin
+        build:
+          context: https://github.com/Awesome-Technologies/synapse-admin.git
+          args:
+            - REACT_APP_SERVER=http://host.docker.internal:8008
+        ports:
+          - "8087:80"
+        restart: unless-stopped
+
+volumes:
+  sbpostgres:

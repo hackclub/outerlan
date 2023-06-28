@@ -10,3 +10,7 @@ auto_join_rooms: # a list of autojoined channels
   - "#weather:chat.outernet"
 autocreate_auto_join_rooms_federated: False # just in case.
 admin_contact: 'Contact Reese, David, or Cara. You should not be seeing this.' # instructions in case something *bad* happens
+server_notices:
+  system_mxid_localpart: notices
+  system_mxid_display_name: "Server Notices"
+  room_name: "Server Notices"

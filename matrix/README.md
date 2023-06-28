@@ -7,8 +7,13 @@
 
 ## installation
 1. clone this repo
-2. clone `https://github.com/aboutdavid/cinny-outerlan.git` and build it as `outerlan/cinny:latest` using `docker build -t outerlan/cinny:latest .`
+2. clone `https://github.com/aboutdavid/cinny-outerlan.git` and build it as `outerlan/cinny:latest` using `docker build -t outerlan/cinny:latest .`. Also build `sbpostgres` as "sbpostgres:latest"
 3. run `./genconfig.sh` in the `matrix` folder and look into the `matrix/data` folder. make adjustments accordingly to fit your use case (if deploying at outernet, changes will most likely not have to be made).
+3.1 also generate the appservice file:
+```
+docker run -v ./sb_config:/config/ matrixdotorg/matrix-appservice-slack -r -c /config/config.yaml -u "http://localhost:8008" -f /config/slack-registration.yaml
+```
+
 4. run docker-compose up -d
 5. make a few admin users:
 ```bash
