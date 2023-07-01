@@ -1,0 +1,18 @@
+services:
+  kanidm:
+    image: kanidm/server:latest
+    volumes:
+      - .:/data
+    expose:
+      - 8443
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.identity.rule=Host(`staging.identity.outernet`)"
+      - "traefik.http.routers.identity.entrypoints=websecure"
+      - "traefik.http.services.identity.loadbalancer.server.port=8443"
+      - "traefik.http.services.identity.loadbalancer.server.scheme=https"
+networks:
+  default:
+    name: internal
+    external: true
+        
