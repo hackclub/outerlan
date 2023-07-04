@@ -31,7 +31,7 @@ services:
             - "5858:5858/tcp"
             - "9898:9898/tcp"
     sbpostgres:
-        image: sbpostgres:latest
+        image: outerlan/sbpostgres:latest
         restart: unless-stopped
         container_name: "sbpostgres"
         environment:

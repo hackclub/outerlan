@@ -2,3 +2,4 @@ data
 .env
 sb_config/config.yaml
 sb_config/slack-registration.yaml
+cinny/temprepo

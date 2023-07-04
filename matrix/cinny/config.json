@@ -1,0 +1,9 @@
+{
+    "defaultHomeserver": 0,
+    "homeserverList": [
+      "http://chat.outernet",
+      "http://host.docker.internal:8008",
+      "http://localhost:8008"
+    ],
+    "allowCustomHomeservers": false
+  }
