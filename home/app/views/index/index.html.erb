@@ -1,0 +1,107 @@
+<main>
+	<h1>Welcome to the OuterLAN!</h1>
+
+  <h3 style="font-weight: normal;" class="text">This guide will help you get setup on the network</h2>
+
+
+<br>
+
+	<h2>Install the Root CA</h2>
+
+	  <p>This allows your computer to trust OuterLAN sites for HTTPS.</p>
+
+	  <button class="btn">Download</button>
+    <br><br>
+	  <div class="alert">
+      <strong>Warning!</strong> You won't be able to access any .outernet sites without the CA installed.
+    </div>
+	  <h3>OS Instructions</h3>
+	  <br>
+	  <div class="tabbable tabs-left">
+	  	<ul class="nav nav-tabs">
+			<li class="active"><a href="#ca-linux" data-toggle="tab">Linux</a></li>
+			<li><a href="#ca-macos" data-toggle="tab">macOS</a></li>
+      <li><a href="#ca-windows" data-toggle="tab">Windows</a></li>
+      <li><a href="#ca-ios" data-toggle="tab">iOS & iPadOS</a></li>
+      <li><a href="#ca-android" data-toggle="tab">Android</a></li>
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane active" id="ca-linux">
+	        		<div class="tabbable tabs-left">
+      		  			<ul class="nav nav-tabs">
+      		    				<li class="active"><a href="#ca-fedora" data-toggle="tab">Fedora</a></li>
+      		    				<li><a href="#ca-ubuntu" data-toggle="tab">Ubuntu</a></li>
+      		    				<li><a href="#ca-nix" data-toggle="tab">NixOS</a></li>
+      		    				<li><a href="#ca-arch" data-toggle="tab">Arch</a></li>
+      		    				<li><a href="#ca-suse" data-toggle="tab">openSUSE</a></li>
+     			  		</ul>
+
+     			  		<div class="tab-content">
+     			    			<div class="tab-pane active" id="ca-fedora">
+                					<p>Move the certificate you downloaded to <code>/usr/local/share/pki/ca-trust/source/anchors/</code>
+                			  		<br><br>Then run <code>update-ca-trust</code> in your shell to refresh the list.</p>
+              					</div>
+              					<div class="tab-pane" id="ca-ubuntu">
+                        			<p>Move the certificate you downloaded to <code>/usr/local/share/ca-certificates/</code>
+                			  		<br><br>Then run <code>update-ca-certificates</code> in your shell to refresh the list.</p>
+              					</div>
+
+                      			<div class="tab-pane" id="ca-nix">
+                          			<p>Update your configuration.nix with <br> <code> security.pki.certificateFiles = [ "/root/cert" ];</code>, with /root/cert replaced with wherever you downloaded the certificate</p>
+     			  				</div>
+						</div>
+
+   				 </div>
+   			</div>
+   			<div class="tab-pane" id="ca-macos"></div>
+   			<div class="tab-pane" id="ca-windows"></div>
+   			<div class="tab-pane" id="ca-ios"></div>
+   			<div class="tab-pane" id="ca-android"></div>
+   		</div>
+   	</div>
+   	<br>
+
+  <div class="alert alert-info">
+    If you are unable to install the CA on your machine, or experiencing issues, follow the instructions below to install it in just your browser.
+  </div>
+
+  <h3>Browser Instructions</h3>
+	  <br>
+	  <div class="tabbable tabs-left">
+	  	<ul class="nav nav-tabs">
+			<li class="active"><a href="#ca-firefox" data-toggle="tab">Firefox</a></li>
+			<li><a href="#ca-chromium" data-toggle="tab">Chromium</a></li>
+      <li><a href="#ca-safari" data-toggle="tab">Safari</a></li>
+      <li><a href="#ca-epiphany" data-toggle="tab">GNOME Web</a></li>
+		</ul>
+		<div class="tab-content">
+   			<div class="tab-pane active" id="ca-firefox"></div>
+   			<div class="tab-pane" id="ca-chromium"></div>
+   			<div class="tab-pane" id="ca-safari">You're done! Safari uses the system trust store.</div>
+   			<div class="tab-pane" id="ca-epiphany">You're done! Web uses the system trust store.</div>
+   		</div>
+   	</div>
+
+	<h2>Create an OuterLAN Account</h2>
+
+	<p>You'll use this to log on to the tilde and elsewhere on the net.</p><br>
+
+	<%= form_with url: "/create_account", method: :post do |form| %>
+    <%= form.label :name, "Full Name" %>
+    <%= form.text_field :name %>
+    <br>
+
+    <%= form.label :username, "Username" %>
+    <%= form.text_field :username %>
+    <br>
+
+    <%= form.submit "Create Account" %>
+
+  <% end %>
+
+  <h2>You're done!</h2>
+
+  <p>Feel free to continue on, or explore the other OuterLAN services</p>
+
+</main>
+

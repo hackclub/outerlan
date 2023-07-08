@@ -1,0 +1,85 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require bootstrap
+ */
+
+  h1,h2 {
+     padding: 1.5rem 0 0 0;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+    margin: 0;
+  }
+
+  p {
+   font-size: 1rem;
+  }
+
+
+  code {
+    font-family: "Portland Mono", monospace;
+    overflow-wrap: anywhere;
+  }
+
+  main {
+    padding: 0 5rem 3rem;
+    max-width: 600px;
+    line-height: 1.8;
+    z-index: 10;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #023020 !important;
+    max-width: 100vw;
+    color: white !important;
+  }
+
+  img#outernet {
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    opacity: 0.2;
+    z-index: -1;
+  }
+
+  a[data-toggle=tab] {
+    color: white;
+  }
+
+  a[data-toggle=tab]:hover {
+    color: #555555;
+  }
+
+  .navbar-inner {
+	  background: #001c12 !important;
+	  box-shadow: none !important;
+	  border: 0 !important;
+	  border-radius: 0 !important;
+  }
+
+
+.navbar-inverse .nav .active > a, .navbar-inverse .nav .active > a:hover, .navbar-inverse .nav .active > a:focus {
+	background-color: #023020 !important;
+	box-shadow:none !important;
+}
+
+.navbar {
+  position: sticky !important;
+  top: 0;
+}
+

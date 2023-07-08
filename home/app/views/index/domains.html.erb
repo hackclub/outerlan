@@ -1,0 +1,32 @@
+<main>
+
+  <h1>Domains</h1>
+
+  <br>
+
+  <p>OuterLAN provides .outernet domains for projects to register! We strictly enforce HTTPS in order to prevent attacks.</p>
+
+  <h2>Hosting</h2>
+
+  <p>You can use the <a href="/tilde">tilde</a> for hosting, or another option is Outernet Web Services.</p>
+
+
+  <h2 id="dns">Acquiring domains</h2>
+
+  <p>On the tilde, create a .zone file in <code>/etc/zones</code> and populate it with all your DNS records. An example is provided at <code>/etc/zones/example.outernet</code>.</p>
+
+  <h2>Issuing HTTPS certificates</h2>
+
+  <br>
+
+  <div class="alert"><strong>Warning!</strong> You need an HTTPS certificate for your site to be accessible.</div>
+
+  <p> On your web server, install the root certificate authority. Then, follow the default procedure for issuing Let's Encrypt certificates - but be sure to change the ACME server to <a>https://ca.outernet/acme/acme/directory</a>. With certbot, use the <code>--server</code> flag to do this.
+
+  <br><br>
+
+  Use either the <code>tls-alpn-01</code> or <code>http-01</code> challenge for host verification.
+
+  </p>
+
+</main>
