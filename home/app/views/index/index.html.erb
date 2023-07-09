@@ -38,8 +38,8 @@
 
      			  		<div class="tab-content">
      			    			<div class="tab-pane active" id="ca-fedora">
-                					<p>Move the certificate you downloaded to <code>/usr/local/share/pki/ca-trust/source/anchors/</code>
-                			  		<br><br>Then run <code>update-ca-trust</code> in your shell to refresh the list.</p>
+                                                  <p>Move the certificate you downloaded to <code>/etc/pki/ca-trust/source/anchors/</code>
+                                                    <br><br>Then run <code>update-ca-trust</code> in your shell to refresh the list.<br><br>You can run <code>trust list | less</code> and look for "OuterLAN Root CA" to check.</p>
               					</div>
               					<div class="tab-pane" id="ca-ubuntu">
                         			<p>Move the certificate you downloaded to <code>/usr/local/share/ca-certificates/</code>
