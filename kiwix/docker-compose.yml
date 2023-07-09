@@ -1,0 +1,22 @@
+version: "3.3"
+services:
+    kiwix:
+        image: "outerlan/kiwix:latest"
+        restart: unless-stopped
+        container_name: "kiwix"
+        environment:
+            PORT: 8099
+        volumes:
+            - "./library:/library:Z"
+        expose:
+            - 8099
+        labels:
+            - "traefik.enable=true"
+            - "traefik.http.routers.identity.rule=Host(`kiwix.outernet`)"
+            - "traefik.http.routers.identity.entrypoints=websecure"
+            - "traefik.http.services.identity.loadbalancer.server.port=8099"
+            - "traefik.http.services.identity.loadbalancer.server.scheme=https"
+networks:
+  default:
+    name: internal
+    external: true

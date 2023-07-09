@@ -12,15 +12,26 @@ services:
             SYNAPSE_SERVER_NAME: "chat.outernet"
             SYNAPSE_REPORT_STATS: "yes"
             TZ: "America/New_York" # cabot is EST
-        ports:
-            - "8008:8008/tcp"
-            - "8448:8448/tcp"
+        expose:
+            - 8008
+        labels:
+            - "traefik.enable=true"
+            - "traefik.http.routers.identity.rule=Host(`synapse.outernet`)"
+            - "traefik.http.routers.identity.entrypoints=websecure"
+            - "traefik.http.services.identity.loadbalancer.server.port=8008"
+            - "traefik.http.services.identity.loadbalancer.server.scheme=https"
     cinny:
         image: "outerlan/cinny:latest" # https://github.com/aboutdavid/cinny-outerlan.git
         restart: unless-stopped
         container_name: "cinny"
-        ports:
-            - "8009:80/tcp"
+        expose:
+            - 8009:80
+        labels:
+            - "traefik.enable=true"
+            - "traefik.http.routers.identity.rule=Host(`chat.outernet`)"
+            - "traefik.http.routers.identity.entrypoints=websecure"
+            - "traefik.http.services.identity.loadbalancer.server.port=8009"
+            - "traefik.http.services.identity.loadbalancer.server.scheme=https"
     slackbridge:
         image: "matrixdotorg/matrix-appservice-slack:latest"
         restart: unless-stopped
@@ -52,9 +63,20 @@ services:
           context: https://github.com/Awesome-Technologies/synapse-admin.git
           args:
             - REACT_APP_SERVER=http://host.docker.internal:8008
-        ports:
-          - "8087:80"
+        expose:
+            - 8087
+        labels:
+            - "traefik.enable=true"
+            - "traefik.http.routers.identity.rule=Host(`admin.chat.outernet`)"
+            - "traefik.http.routers.identity.entrypoints=websecure"
+            - "traefik.http.services.identity.loadbalancer.server.port=8087"
+            - "traefik.http.services.identity.loadbalancer.server.scheme=https"
         restart: unless-stopped
 
 volumes:
   sbpostgres:
+
+networks:
+  default:
+    name: internal
+    external: true
