@@ -1,3 +1,3 @@
-# outerlan
+# OuterLAN
 
-the net for outernet
+_"We put the 'net' in Outernet"_
