@@ -1,0 +1,6 @@
+{
+	"ca-url": "https://ca.outernet",
+	"ca-config": "/root/.step/config/ca.json",
+	"fingerprint": "d538d7242c96ae52bf427d8b7e88a73aa769125eb80f64b23ca6792c42f26d8f",
+	"root": "/root/.step/certs/root_ca.crt"
+}
