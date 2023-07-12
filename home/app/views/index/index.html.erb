@@ -10,7 +10,7 @@
 
 	  <p>This allows your computer to trust OuterLAN sites for HTTPS.</p>
 
-	  <button class="btn">Download</button>
+	  <button class="btn" href="/">Download</button>
     <br><br>
 	  <div class="alert">
       <strong>Warning!</strong> You won't be able to access any .outernet sites without the CA installed.
@@ -38,25 +38,53 @@
 
      			  		<div class="tab-content">
      			    			<div class="tab-pane active" id="ca-fedora">
-                                                  <p>Move the certificate you downloaded to <code>/etc/pki/ca-trust/source/anchors/</code>
-                                                    <br><br>Then run <code>update-ca-trust</code> in your shell to refresh the list.<br><br>You can run <code>trust list | less</code> and look for "OuterLAN Root CA" to check.</p>
+									<p>Move the certificate you downloaded to <code>/etc/pki/ca-trust/source/anchors/</code>
+									<br><br>Then run <code>update-ca-trust</code> in your shell as root to refresh the list.<br><br>You can run <code>trust list | less</code> and look for "OuterLAN Root CA" to check.</p>
               					</div>
+
               					<div class="tab-pane" id="ca-ubuntu">
                         			<p>Move the certificate you downloaded to <code>/usr/local/share/ca-certificates/</code>
-                			  		<br><br>Then run <code>update-ca-certificates</code> in your shell to refresh the list.</p>
+                			  		<br><br>Then run <code>update-ca-certificates</code> in your shell as root to refresh the list.</p>
               					</div>
 
                       			<div class="tab-pane" id="ca-nix">
-                          			<p>Update your configuration.nix with <br> <code> security.pki.certificateFiles = [ "/root/cert" ];</code>, with /root/cert replaced with wherever you downloaded the certificate</p>
+                          			<p>Update your configuration.nix with <br> <code>security.pki.certificateFiles = [ "/root/cert" ];</code>, with /root/cert replaced with wherever you downloaded the certificate</p>
      			  				</div>
+
+								<div class="tab-pane" id="ca-arch">
+								   <p>Move the certificate you downloaded to <code>/etc/ca-certificates/trust-source/anchors/</code>
+								   <br><br>Then run <code>update-ca-trust</code> in your shell as root to refresh the list.<br><br>You can run <code>trust list | less</code> and look for "OuterLAN Root CA" to check.</p>
+								</div>
+
+								<div class="tab-pane" id="ca-suse">
+                        			<p>Move the certificate you downloaded to <code>/usr/share/pki/trust/anchors/</code>
+                			  		<br><br>Then run <code>update-ca-certificates</code> in your shell as root to refresh the list.</p>
+              					</div>
 						</div>
 
    				 </div>
    			</div>
-   			<div class="tab-pane" id="ca-macos"></div>
-   			<div class="tab-pane" id="ca-windows"></div>
-   			<div class="tab-pane" id="ca-ios"></div>
-   			<div class="tab-pane" id="ca-android"></div>
+   			<div class="tab-pane" id="ca-macos">
+				<p> Run the command <code>sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain new-root-certificate</code> with new-root-certificate replaced with the path to the downloaded CA.</p>
+			</div>
+   			<div class="tab-pane" id="ca-windows">
+				<p> Run <code>Import-Certificate -FilePath "new-root-certificate" -CertStoreLocation Cert:\LocalMachine\Root</code> in powershell as admin with new-root-certificate replaced with the path to the downloaded CA. </p>
+				</br>
+				<p> If that doesn\'t work, try <code>certutil.exe -addstore root new-root-certificate</code> in cmd as admin with new-root-certificate replaced with the path to the downloaded CA.</p>
+			</div>
+   			<div class="tab-pane" id="ca-ios">More info available soon</div>
+   			<div class="tab-pane" id="ca-android">
+				<p>Follow these instructions:</p>
+				<ol>
+					<li>Open your device\'s Settings app.</li>
+					<li>Tap Security & privacy And then More security settings and then Encryption & credentials.</li>
+					<li>Tap Install a certificate And then CA certificate.</li>
+					<li>Click Install Anyway</li>
+					<li>Find the downloaded CA</li>
+					<li>Enter a name(something like outernet root CA)</li>
+					<li>Click ok</li>
+				</ol>
+			</div>
    		</div>
    	</div>
    	<br>
@@ -75,10 +103,29 @@
       <li><a href="#ca-epiphany" data-toggle="tab">GNOME Web</a></li>
 		</ul>
 		<div class="tab-content">
-   			<div class="tab-pane active" id="ca-firefox"></div>
-   			<div class="tab-pane" id="ca-chromium"></div>
-   			<div class="tab-pane" id="ca-safari">You're done! Safari uses the system trust store.</div>
-   			<div class="tab-pane" id="ca-epiphany">You're done! Web uses the system trust store.</div>
+   			<div class="tab-pane active" id="ca-firefox">
+				<p>Follow these Instructions:</p>
+				<ol>
+					<li>Type <code>about:preferences#privacy</code> into the adress bar (this will just go to privacy and security in settings)</li>
+					<li>Scroll down to Certificates and click View Certificates</li>
+					<li>Go to the Authorities Tab</li>
+					<li>Click import and find the downloaded CA</li>
+				</ol>
+			</div>
+   			<div class="tab-pane" id="ca-chromium">
+			   	<p>Follow these Instructions:</p>
+				<ol>
+					<li>Type <code>chrome://settings/certificates</code> into the adress bar (The certificates page)</li>
+					<li>Click on the Authorities tab and click import</li>
+					<li>Open the downloaded CA</li>
+				</ol>
+			</div>
+   			<div class="tab-pane" id="ca-safari">You\'re done! Safari uses the system trust store.</div>
+   			<div class="tab-pane" id="ca-epiphany">
+				<p>Web does not have built-in support for certificate management at this time.</p>
+				</br>
+				<p>However you can add a certificate with <code>sudo trust anchor new-root-certificate</code> where new-root-certificate is the path to the downloaded CA if you have p11-kit installed.</p>
+			</div>
    		</div>
    	</div>
 
