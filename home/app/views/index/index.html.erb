@@ -10,7 +10,7 @@
 
 	  <p>This allows your computer to trust OuterLAN sites for HTTPS.</p>
 
-	  <button class="btn" href="/">Download</button>
+	  <button class="btn">Download</button>
     <br><br>
 	  <div class="alert">
       <strong>Warning!</strong> You won't be able to access any .outernet sites without the CA installed.
@@ -72,7 +72,17 @@
 				</br>
 				<p> If that doesn\'t work, try <code>certutil.exe -addstore root new-root-certificate</code> in cmd as admin with new-root-certificate replaced with the path to the downloaded CA.</p>
 			</div>
-   			<div class="tab-pane" id="ca-ios">More info available soon</div>
+   			<div class="tab-pane" id="ca-ios">
+			   	<p>Follow these instructions:</p>
+				<ol>
+					<li>Find the downloaded CA in the Files app and open it (*do not open the file from the browser as it will not install it as a system certificate).</li>
+					<li>Under Choose a Device, select Iphone</li>
+					<li>Go to the settings app and select profile download from the main page</li>
+					<li>On the install profile page, click install.</li>
+					<li>Click install again on the warning screen.</li>
+					<li>To verify it is installed, go to settings > General > VPN & Device Management</li>
+				</ol>
+			</div>
    			<div class="tab-pane" id="ca-android">
 				<p>Follow these instructions:</p>
 				<ol>
@@ -120,7 +130,7 @@
 					<li>Open the downloaded CA</li>
 				</ol>
 			</div>
-   			<div class="tab-pane" id="ca-safari">You\'re done! Safari uses the system trust store.</div>
+   			<div class="tab-pane" id="ca-safari">Safari uses the system keychain so add it using the instructions in macOS or IOS</div>
    			<div class="tab-pane" id="ca-epiphany">
 				<p>Web does not have built-in support for certificate management at this time.</p>
 				</br>

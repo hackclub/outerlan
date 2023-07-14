@@ -14,6 +14,4 @@ class IndexController < ApplicationController
   def support
     params[:action] = "support"
   end
-
-
 end
