@@ -43,7 +43,7 @@
               					</div>
 
               					<div class="tab-pane" id="ca-ubuntu">
-                        			<p>Move the certificate you downloaded to <code>/usr/local/share/ca-certificates/</code>
+                        			<p>Move the certificate you downloaded to <code>/usr/local/share/ca-certificates/</code> (you can use <code>sudo cp new-root-certificate /usr/local/share/ca-certificates/</code> with new-root-certificate replaced with the path to the downloaded CA.)
                 			  		<br><br>Then run <code>update-ca-certificates</code> in your shell as root to refresh the list.</p>
               					</div>
 
@@ -91,8 +91,7 @@
 					<li>Tap Install a certificate And then CA certificate.</li>
 					<li>Click Install Anyway</li>
 					<li>Find the downloaded CA</li>
-					<li>Enter a name(something like outernet root CA)</li>
-					<li>Click ok</li>
+					<li>To verify it is installed go to Trusted credentials under Encryption & credentials and check the user tab.</li>
 				</ol>
 			</div>
    		</div>
