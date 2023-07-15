@@ -10,7 +10,7 @@
 
 	  <p>This allows your computer to trust OuterLAN sites for HTTPS.</p>
 
-	  <a class="btn" href="./outerlan_ca.crt">Download</a>
+	  <a class="btn" href="https://lan.outernet.hackclub.com/outerlan_ca.crt">Download</a>
     <br><br>
 	  <div class="alert">
       <strong>Warning!</strong> You won't be able to access any .outernet sites without the CA installed.
@@ -38,12 +38,33 @@
 
      			  		<div class="tab-content">
      			    			<div class="tab-pane active" id="ca-fedora">
+									<h3>Run these commands:</h3>
+<pre>
+<code>
+curl https://lan.outernet.hackclub.com/outerlan_ca.crt -o outerlan_ca.crt
+sudo mv ./outerlan_ca.crt /etc/pki/ca-trust/source/anchors/
+sudo update-ca-trust
+</code>
+</pre>
+
+									<h3>Or do it manually:</h3>
 									<p>Move the certificate you downloaded to <code>/etc/pki/ca-trust/source/anchors/</code>
 									<br><br>Then run <code>update-ca-trust</code> in your shell as root to refresh the list.<br><br>You can run <code>trust list | less</code> and look for "OuterLAN Root CA" to check.</p>
-              					</div>
+									<br>
+								</div>
 
               					<div class="tab-pane" id="ca-ubuntu">
-                        			<p>Move the certificate you downloaded to <code>/usr/local/share/ca-certificates/</code> (you can use <code>sudo cp new-root-certificate /usr/local/share/ca-certificates/</code> with new-root-certificate replaced with the path to the downloaded CA.)
+									<h3>Run these commands:</h3>
+<pre>
+<code>
+curl https://lan.outernet.hackclub.com/outerlan_ca.crt -o outerlan_ca.crt
+sudo mv ./outerlan_ca.crt /usr/local/share/ca-certificates/
+sudo update-ca-certificates
+</code>
+</pre>
+								  
+									<h3>Or do it manually:</h3>
+                        			<p>Move the certificate you downloaded to <code>/usr/local/share/ca-certificates/</code>
                 			  		<br><br>Then run <code>update-ca-certificates</code> in your shell as root to refresh the list.</p>
               					</div>
 
@@ -52,11 +73,31 @@
      			  				</div>
 
 								<div class="tab-pane" id="ca-arch">
-								   <p>Move the certificate you downloaded to <code>/etc/ca-certificates/trust-source/anchors/</code>
-								   <br><br>Then run <code>update-ca-trust</code> in your shell as root to refresh the list.<br><br>You can run <code>trust list | less</code> and look for "OuterLAN Root CA" to check.</p>
+									<h3>Run these commands:</h3>
+<pre>
+<code>
+curl https://lan.outernet.hackclub.com/outerlan_ca.crt -o outerlan_ca.crt
+sudo mv ./outerlan_ca.crt /etc/ca-certificates/trust-source/anchors/
+sudo update-ca-trust
+</code>
+</pre>
+									
+									<h3>Or do it manually:</h3>
+									<p>Move the certificate you downloaded to <code>/etc/ca-certificates/trust-source/anchors/</code>
+									<br><br>Then run <code>update-ca-trust</code> in your shell as root to refresh the list.<br><br>You can run <code>trust list | less</code> and look for "OuterLAN Root CA" to check.</p>
 								</div>
 
 								<div class="tab-pane" id="ca-suse">
+									<h3>Run these commands:</h3>
+<pre>
+<code>
+curl https://lan.outernet.hackclub.com/outerlan_ca.crt -o outerlan_ca.crt
+sudo mv ./outerlan_ca.crt /usr/share/pki/trust/anchors/
+sudo update-ca-certificates
+</code>
+</pre>
+									
+									<h3>Or do it manually:</h3>
                         			<p>Move the certificate you downloaded to <code>/usr/share/pki/trust/anchors/</code>
                 			  		<br><br>Then run <code>update-ca-certificates</code> in your shell as root to refresh the list.</p>
               					</div>
@@ -65,9 +106,35 @@
    				 </div>
    			</div>
    			<div class="tab-pane" id="ca-macos">
+				<h3>Run these commands:</h3>
+<pre>
+<code>
+curl https://lan.outernet.hackclub.com/outerlan_ca.crt -o outerlan_ca.crt
+sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain ./outerlan_ca.crt
+</code>
+</pre>
+
+				<h3>Or do it manually:</h3>
 				<p> Run the command <code>sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain new-root-certificate</code> with new-root-certificate replaced with the path to the downloaded CA.</p>
 			</div>
    			<div class="tab-pane" id="ca-windows">
+				<h3>Run these commands(powershell):</h3>
+<pre>
+<code>
+Invoke-WebRequest -URI https://lan.outernet.hackclub.com/outerlan_ca.crt -OutFile outerlan_ca.crt
+Import-Certificate -FilePath .\outerlan_ca.crt -CertStoreLocation Cert:\LocalMachine\Root 
+</code>
+</pre>
+
+<h3>Run these commands(CMD as admin):</h3>
+<pre>
+<code>
+curl https://lan.outernet.hackclub.com/outerlan_ca.crt -o outerlan_ca.crt
+certutil.exe -addstore root .\outerlan_ca.crt
+</code>
+</pre>
+
+				<h3>Or do it manually:</h3>
 				<p> Run <code>Import-Certificate -FilePath "new-root-certificate" -CertStoreLocation Cert:\LocalMachine\Root</code> in powershell as admin with new-root-certificate replaced with the path to the downloaded CA. </p>
 				</br>
 				<p> If that doesn\'t work, try <code>certutil.exe -addstore root new-root-certificate</code> in cmd as admin with new-root-certificate replaced with the path to the downloaded CA.</p>
