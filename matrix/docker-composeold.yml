@@ -1,0 +1,60 @@
+version: "3.3"
+services:
+    synapse:
+        image: "matrixdotorg/synapse:latest"
+        restart: unless-stopped
+        container_name: "synapse"
+        volumes:
+            - "./data:/data:Z"
+        environment:
+            VIRTUAL_HOST: "chat.outernet"
+            VIRTUAL_PORT: 8008
+            SYNAPSE_SERVER_NAME: "chat.outernet"
+            SYNAPSE_REPORT_STATS: "yes"
+            TZ: "America/New_York" # cabot is EST
+        ports:
+            - "8008:8008/tcp"
+            - "8448:8448/tcp"
+    cinny:
+        image: "outerlan/cinny:latest" # https://github.com/aboutdavid/cinny-outerlan.git
+        restart: unless-stopped
+        container_name: "cinny"
+        ports:
+            - "8009:80/tcp"
+    slackbridge:
+        image: "matrixdotorg/matrix-appservice-slack:latest"
+        restart: unless-stopped
+        container_name: "slackbridge"
+        volumes:
+            - "./sb_config:/config"
+        ports:
+            - "5858:5858/tcp"
+            - "9898:9898/tcp"
+    sbpostgres:
+        image: outerlan/sbpostgres:latest
+        restart: unless-stopped
+        container_name: "sbpostgres"
+        environment:
+          - POSTGRES_USER=postgres
+          - POSTGRES_PASSWORD=postgres
+        logging:
+          options:
+            max-size: 10m
+            max-file: "3"
+        ports:
+          - '5438:5432'
+        volumes: 
+          - sbpostgres:/var/lib/postgresql/data
+    synapse-admin:
+        container_name: synapse-admin
+        hostname: synapse-admin
+        build:
+          context: https://github.com/Awesome-Technologies/synapse-admin.git
+          args:
+            - REACT_APP_SERVER=http://host.docker.internal:8008
+        ports:
+          - "8087:80"
+        restart: unless-stopped
+
+volumes:
+  sbpostgres:
