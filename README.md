@@ -5,7 +5,17 @@ Outernet was the event that took hackers outside to touch grass, but OuterLAN br
 > ⚠️ All times and dates are in Eastern Daylight Time (America/New_York, UTC-4) unless stated otherwise. The currency used is the United States Dollar, with the "." being the decimal place and the "," is the thousand grouping.
 
 ## 💸 The Budget
-OuterLAN had a budget of $10924.98. About 50% went to Starlink equipment , and 2-3% going to service and the router.
+OuterLAN had a budget of $10924.98. Here is a simple breakdown of the budget:
+
+- Networking Equipment: $2,218.92 (15.50%)
+- Satellite Internet: $5,680.00 (39.68%)
+- Infrastructure: $458.99 (3.21%)
+- Cabling and Accessories: $1,066.84 (7.45%)
+- Power and Energy: $460.00 (3.22%)
+- Total Equipment Cost: $14,359.07
+- Shipping: $581.98 (4.06%)
+
+Grand Total: $14,941.05
 
 [↗️ The full budget is available here](https://docs.google.com/spreadsheets/d/1Gf1x8dKi89572b3kToda9X_eevY1oXE4HmD5KoMCSac/edit#gid=0)
 
