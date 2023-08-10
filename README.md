@@ -23,6 +23,6 @@ We used [Starlink Business](https://www.starlink.com/business) to get fast downl
 We wanted to essentially wanted to create our own internet at Outernet, so we setup CoreDNS to make .outernet domains, i.e. chat.outernet, our very own matrix server, and setup.outernet, a page dedicated to helping people get connected fully to the internet.
 
 ## 🖥️ Backbone (as simple as possible)
-Router: OPNsense running on Proxmox VE
-Access Points: 4 Ruckus R710 Access points, the main one in Faith Lodge being the "master" (controls the others)
-Server: A Dell Poweredge R620 that was $139, but took forever to boot. Was very large but was very powerful. It had 2 TB disks installed. One for main storage, and one contained Wikipedia, All Stack Exchanges relating to computers + Ham Radio Stack Exchange.
+* Router: OPNsense running on Proxmox VE
+* Access Points: 4 Ruckus R710 Access points, the main one in Faith Lodge being the "master" (controls the others)
+* Server: A Dell Poweredge R620 that was $139, but took forever to boot. Was very large but was very powerful. It had 2 TB disks installed. One for main storage, and one contained Wikipedia, All Stack Exchanges relating to computers + Ham Radio Stack Exchange.
