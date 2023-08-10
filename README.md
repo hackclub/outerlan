@@ -12,8 +12,9 @@ OuterLAN had a budget of $10924.98. Here is a simple breakdown of the budget:
 - Infrastructure: $458.99 (3.21%)
 - Cabling and Accessories: $1,066.84 (7.45%)
 - Power and Energy: $460.00 (3.22%)
-- Total Equipment Cost: $14,359.07
 - Shipping: $581.98 (4.06%)
+
+Total Equipment Cost: $14,359.07
 
 Grand Total: $14,941.05
 
