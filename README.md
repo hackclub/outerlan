@@ -5,7 +5,7 @@ Outernet was the event that took hackers outside to touch grass, but OuterLAN br
 > ⚠️ All times and dates are in Eastern Daylight Time (America/New_York, UTC-4) unless stated otherwise. The currency used is the United States Dollar, with the "." being the decimal place and the "," is the thousand grouping.
 
 ## 💸 The Budget
-OuterLAN had a budget of $10924.98. About 50% went to Starlink equipment , and 2-3% going to service and the router.
+OuterLAN had a budget of $10,924.98. About 50% went to Starlink equipment , and 2-3% going to service and the router.
 
 [↗️ The full budget is available here](https://docs.google.com/spreadsheets/d/1Gf1x8dKi89572b3kToda9X_eevY1oXE4HmD5KoMCSac/edit#gid=0)
 
