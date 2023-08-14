@@ -21,7 +21,7 @@ Grand Total: $14,941.05
 [↗️ The full budget is available here](https://docs.google.com/spreadsheets/d/1Gf1x8dKi89572b3kToda9X_eevY1oXE4HmD5KoMCSac/edit#gid=0)
 
 ## 📄 The plan
-The original plan was to use 6 Ruckus R710 Access Points, placed at Faith Lodge (dining point), the [Cafe](https://hackclub.slack.com/archives/C058MNEP9MZ), the Barn, and various other places. It was later modified to try to get an access point at the sleeping area, which we'll talk about later. Eventually, we ended up only using 4: Two in Faith Lodge, one in the Cafe, and one in the Barn. Each access point (minus the secondary one in Faith Lodge named GamesField) had a Ubiquiti switch for users to plug in ethernet to their own personal devices/servers. The server was going to run Proxmox and OPNsense as a router.
+The original plan was to use 6 Ruckus R710 Access Points, placed at The Cookhouse (dining point), the [Cafe](https://hackclub.slack.com/archives/C058MNEP9MZ), the Barn, and various other places. It was later modified to try to get an access point at the sleeping area, which we'll talk about later. Eventually, we ended up only using 4: Two in Faith Lodge, one in the Cafe, and one in the Barn. Each access point (minus the secondary one in The Cookhouse named GamesField) had a Ubiquiti switch for users to plug in ethernet to their own personal devices/servers. The server was going to run Proxmox and OPNsense as a router.
 
 ## ⏲️ Last Minute Worries
 1. On the 25th of July at 11:05 PM, the team assembled quickly as we had an emergency. We couldn't reflash the raid controller to be able to recognize our disks. This meant we couldn't install Proxmox on our server.
@@ -35,5 +35,5 @@ We wanted to essentially wanted to create our own internet at Outernet, so we se
 
 ## 🖥️ Backbone (as simple as possible)
 * Router: OPNsense running on Proxmox VE
-* Access Points: 4 Ruckus R710 Access points, the main one in Faith Lodge being the "master" (controls the others)
+* Access Points: 4 Ruckus R710 Access points, the main one in The Cookhouse being the "master" (controls the others)
 * Server: A Dell Poweredge R620 that was $139, but took forever to boot. Was very large but was very powerful. It had 2 TB disks installed. One for main storage, and one contained Wikipedia, All Stack Exchanges relating to computers + Ham Radio Stack Exchange.
